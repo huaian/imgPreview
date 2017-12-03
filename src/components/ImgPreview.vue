@@ -229,43 +229,8 @@ export default {
                 query(self.els.previewNode).css('transform', '');
                 query(self.els.previewNode).css('height', '95%');
                 query(self.els.previewNode).css('width', '95%');
-              } else if (type == 'dialog') {//弹窗中显示
-                //在弹窗中显示
-                var imgCodeConfig = constData.imgCodeConfig;
-                var sendTopicFn = function(opts){
-                  var self = this;
-                  var opts = opts || {};
-                  loanAssessmentTabChangedTopic.set('data', {
-                    parentViewName:self.parentViewName,
-                    showImage: true,
-                    /*
-                    filter: {
-                      groupNo: imgCodeConfig[self.getParentViewInstance().els["loan_assessment_tab-container_right"].selectedChildWidget['class']]
-                    },
-                    */
-                    filter: self.getParentViewModel().get('imgFilter'),//filter
-                    storeName: self.getParentViewModel().get('imgStoreName'),//store for imgList
-                  });
-                  loanAssessmentTabChangedTopic.set('source',self.parentViewName);//
-                  //loanAssessmentTabChangedTopic.publish();
-                  self.publish(loanAssessmentTabChangedTopic);
-                };
-                if(self.imgViewerDialog){
-
-                }else{
-                  self.imgViewerDialog = new imgViewerDialog({
-                    widgetData: {
-                      viewName: self.viewName + '_dialog',//[{name:'reasonOne',id:'R1'}],
-                    },
-                    view:self,
-                    sendTopicFn:sendTopicFn
-                  });
-                }
-                self.imgViewerDialog.startup();
-                self.imgViewerDialog.show();
-              }
+              } 
             }
-
   }
 }
 </script>
