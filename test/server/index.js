@@ -3,7 +3,9 @@ const jsonServer = require('json-server')
 const server = jsonServer.create()
 const path = require('path')
 // const router = jsonServer.router('test.json')
-const router = jsonServer.router(path.join(__dirname, 'test.json'))
+const jsonGeneratedRouter = require('./test')
+// const router = jsonServer.router(path.join(__dirname, 'test.json'))
+const router = jsonServer.router(jsonGeneratedRouter)
 const middlewares = jsonServer.defaults()
  
 // server.use(middlewares)
@@ -37,7 +39,7 @@ server.use(jsonServer.rewriter({
 server.use(router)
 // In this example, returned resources will be wrapped in a body property
 router.render = (req, res) => {
-  console.log(res.locals)
+  // console.log(res.locals)
   res.json({
     code: {
       code: '0000',

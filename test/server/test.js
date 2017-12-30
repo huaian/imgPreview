@@ -1,4 +1,4 @@
-{
+module.exports = {
   "posts": [
     {
       "id": 1,
