@@ -12,3 +12,12 @@ export const isCompatibleBrowser = ({
     return false
   }
 }
+
+/**
+ * @description 是否是外链
+ */
+export const isOuterLink = ({
+  elementNode
+}) => {
+  return elementNode.href.indexOf('http') >= 0
+}

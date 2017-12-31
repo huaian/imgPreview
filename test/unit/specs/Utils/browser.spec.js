@@ -1,4 +1,5 @@
-import {isCompatibleBrowser} from '@/Utils/browser' 
+import {isCompatibleBrowser, isOuterLink} from '@/Utils/browser' 
+import $ from 'jquery' 
 import _ from "lodash"
 let Chrome62UserAgent = 'chrome62' // TODO
 let Chrome61UserAgent = '' // TODO
@@ -7,7 +8,7 @@ let IE9UserAgent = '' // TODO
 let IE10UserAgent = '' // TODO
 let IE11UserAgent = 'IE11' // TODO
 let FirefoxUserAgent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0"
-describe('browser utils', () => {
+describe('兼容性检测', () => {
   it('检查IE11允许', () => { // 供异步调用
     expect(isCompatibleBrowser( {userAgent: IE11UserAgent})).toEqual(true) // 检查state状态
   })
@@ -36,5 +37,13 @@ describe('browser utils', () => {
     expect(isCompatibleBrowser({
       userAgent: FirefoxUserAgent
     })).toEqual(false) // 检查state状态
+  })
+})
+describe('外链检测', () => {
+  it('正常外链检测', () => { // 供异步调用
+    let outerLinkElementNode = $('<a target="_blank" href="http://www.outerlink.com/"></a>')[0]
+    expect(isOuterLink({
+      elementNode: outerLinkElementNode
+    })).toEqual(true) // 检查state状态
   })
 })
