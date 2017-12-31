@@ -1,4 +1,6 @@
+let histories = require('./histories')
 module.exports = {
+  histories: histories,
   "posts": [
     {
       "id": 1,
