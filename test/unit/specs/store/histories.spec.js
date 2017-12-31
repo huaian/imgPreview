@@ -1,6 +1,5 @@
 import {store} from '@/store'
 import _ from "lodash"
-// import {histories} from '../../../server/data/histories'
 let histories = require('../../../server/data/histories')
 let localGeneratedId = +new Date()
 describe('store', () => {
@@ -55,6 +54,4 @@ describe('store', () => {
       done() // 异步触发断言的方式
     })
   })
-  // it('恢复历史版本', (done) => { // 供异步调用
-  // })
 })
