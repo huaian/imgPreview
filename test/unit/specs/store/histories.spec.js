@@ -52,7 +52,6 @@ describe('store', () => {
     let originalLength = histories.length
     store.dispatch('DELETE_HISTORIES', {id: localGeneratedId}).then((response) => {
       expect(store.state.page.histories.length).toEqual(originalLength - 1) // 检查state状态
-      store.state.page.histories = histories // 恢复数据供后续测试
       done() // 异步触发断言的方式
     })
   })
