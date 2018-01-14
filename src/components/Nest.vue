@@ -29,19 +29,18 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    escapeParse ({
-      container
-    }) {
-      $(container).children().find('[v-on:click]').each((item) => {
-        let clickHandler = $(item).attr('v-on:click')
-        $(item).attr('_v-on:click', clickHandler)
-        $(item).removeAttr('v-on:click')
-      })
-    },
+    // escapeParse ({
+    //   container
+    // }) {
+    //   $(container).children().find('[v-on:click]').each((item) => {
+    //     let clickHandler = $(item).attr('v-on:click')
+    //     $(item).attr('_v-on:click', clickHandler)
+    //     $(item).removeAttr('v-on:click')
+    //   })
+    // },
     parse ({container}) {
       _.reverse(Array.from($(container).find('img'))).forEach(function(element, index) {
         if (index > 0) {
@@ -50,11 +49,7 @@ export default {
         let prev = $(element).prev()[0]
         console.log(prev)
         $(prev).removeAttr('v-pre')
-        // this.escapeParse({
-        //   container: prev
-        // })
         let propsData = $(element).data('props')
-        console.log(propsData)
         let constructor = Vue.extend(Macro)
         let macroComponent = new constructor({
           el: prev,
