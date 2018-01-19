@@ -45,21 +45,29 @@ let pred = (a, b) => {
   }
 }
 
-let sortTree = ({treeData}) => {
-  return treeData.sort(comparator({computor, pred}))
+let sortTree = ({data}) => {
+  return data.sort(comparator({computor, pred}))
 }
 
 describe('测试排序', () => {
-  it('纯数字', () => { // 供异步调用
-    expect(sortTree()).toEqual(true) // 检查单引号
+  it('纯数字', () => { //
+    expect(sortTree({
+      data: [{title: '012'}, {title: '123'}, {title: '345'}]
+    })[0].title === '012').toEqual(true) //
   })
-  it('双引号', () => { // 供异步调用
-    expect(transformToUrl(contentBodyWithColonSmall).indexOf('small') >= 0).toEqual(true) // 检查双引号
+  it('纯字母', () => { //
+    expect(sortTree({
+      data: [{title: 'd'}, {title: 'b'}, {title: 'c'}]
+    })[0].title === 'b').toEqual(true) //
   })
-  it('jpg', () => { // 供异步调用
-    expect(transformToUrl(contentBodyWithPng).indexOf('small') >= 0).toEqual(true) // 检查双引号
+  it('大小写字母', () => { // 
+    expect(sortTree({
+      data: [{title: 'A'}, {title: 'a'}, {title: 'B'}]
+    })[0].title === 'a').toEqual(true) //
   })
-  it('gif', () => { // 供异步调用
-    expect(transformToUrl(contentBodyWithGif).indexOf('small') >= 0).toEqual(true) // 检查双引号
+  it('汉字', () => { // 
+    expect(sortTree({
+      data: [{title: '赵'}, {title: '钱'}]
+    })[0].title === '钱').toEqual(true) //
   })
 })
