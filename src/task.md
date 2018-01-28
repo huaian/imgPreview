@@ -20,5 +20,30 @@
 1. 评论组件化
 
 1. 宏嵌套
-２.宏复制
+2. 宏复制
 3. node性能
+
+#################################################################################################
+cloud
+    create release branch 
+    test existing macro
+    write macro document
+    fix issue for unit test 
+    draft routes 
+    draft vuex
+lf
+    ask yy to rollback issue
+    design changes for this release confirm
+    design changes for draft
+hpy
+    fix css issue for tree drag
+    macro (inline content)
+gff
+    macro (subtree)
+wcc
+    comment issue 
+    regression test
+    draft plan
+
+
+
